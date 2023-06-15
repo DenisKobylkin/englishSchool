@@ -1,0 +1,39 @@
+// viewports
+$mobile-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1366px;
+
+// colors
+// back of buttons
+$orange: #FFD787;
+$blue: #8DD9E5;
+$pink: #FEB9CC;
+
+// color fonts
+$darkblue: #122659;
+$grey: #677085;
+
+// color of background
+$page: #FEFCFA;
+$background-page: #E5E5E5;
+
+.page__footer{
+    padding: 40px 0 40px 15px;
+    @media(min-width:$tablet-width){
+        padding: 45px 40px;
+        display: flex;
+        justify-content: space-between;
+    }
+    p {
+        font-size: 12px;
+        line-height: 17px;
+        @media(min-width:$tablet-width){
+            font-size: inherit;
+            line-height: inherit;
+            margin: 0;
+        }
+    }
+    @media(min-width:$desktop-width){
+        display: none;
+    }
+}

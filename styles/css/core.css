@@ -1,0 +1,39 @@
+.page__body {
+  height: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: "Montserrat";
+  font-weight: 400;
+  color: #122659;
+  margin: 0;
+  background-color: #E5E5E5;
+}
+
+.page__body-container {
+  width: 320px;
+  margin: 0 auto;
+  background-color: #FEFCFA;
+}
+@media (min-width: 768px) {
+  .page__body-container {
+    width: 768px;
+  }
+}
+@media (min-width: 1366px) {
+  .page__body-container {
+    width: 1366px;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

@@ -1,0 +1,259 @@
+// viewports
+$mobile-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1366px;
+
+// colors
+// back of buttons
+$orange: #FFD787;
+$blue: #8DD9E5;
+$pink: #FEB9CC;
+
+// color fonts
+$darkblue: #122659;
+$grey: #677085;
+
+// color of background
+$page: #FEFCFA;
+$background-page: #E5E5E5;
+
+@mixin phone {
+    text-decoration: none;
+    color: $darkblue;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    padding-left: 30px;
+    position: relative;    
+    &::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-image: url('../../images/call.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-right: auto;
+        top: 5px;
+        left: 5px;
+    }
+}
+
+@mixin interactive {
+    &:hover {
+        opacity: 0.6;
+    }    
+    &:active {
+        opacity: 0.3;
+    }
+}
+
+@mixin header-button{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    box-sizing: content-box;
+    @include interactive();
+}
+
+.page__header-closed{
+    padding: 30px 10px;    
+    box-sizing: border-box;
+    display: flex;
+    @media(min-width: $tablet-width){
+        padding: 30px 45px;
+    }
+    @media(min-width:$desktop-width){
+        padding: 40px 98px;
+    }
+    .page__header-wrapper {
+        display: flex;
+        .page__header-button{            
+            width: 24px;
+            height: 12px;            
+            padding: 5px;             
+            margin: 0 10px 0 0; 
+            align-self: center;           
+            @include header-button();
+            &::before{
+                content: '';
+                position: absolute;
+                width: 24px;
+                height: 2px;
+                top: 2px;
+                right: 5px;        
+                background-color: $darkblue;
+                box-shadow: 0 5px 0 0 $darkblue, 0 10px 0 0 $darkblue;                
+            }            
+            @media(min-width:$desktop-width){
+                display: none;
+            }
+        }
+        .page__header-logo{
+            @include interactive();
+        }
+    }    
+    .main__nav {
+        @media(max-width: $tablet-width) {
+            display: none;
+        }
+        @media(min-width:$tablet-width){
+            display: none;
+        }
+        @media(min-width:$desktop-width){
+            display: block;
+            .main__nav-list{
+                display: flex;
+                list-style-type: none;
+                padding: 0;
+                margin: 0 0 0 57px;
+                .main__nav-item{
+                    &:not(:last-child) {
+                        margin: 0 20px 0 0;
+                    }
+                    .main__nav-link{
+                        text-decoration: none;
+                        color: $darkblue;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                        @include interactive();
+                    }
+                }
+            }
+        }
+    }
+    .main__nav-phone{
+        @include interactive();
+        @media(max-width: $tablet-width){
+            display: none;
+        }
+        @media(min-width:$tablet-width){
+            display: block;
+            margin-left: auto;
+            @include phone();            
+        }        
+    }
+}
+
+.page__header-opened{
+    padding: 30px 10px 40px 10px;    
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    @media(min-width: $tablet-width){
+        padding: 30px 45px 46px 45px;
+    }
+    @media(min-width:$desktop-width){
+        padding: 40px 98px;
+        flex-direction: row;
+    }        
+    .page__header-wrapper {
+        display: flex;
+        margin-bottom: 34px;
+        @media(min-width: $tablet-width){
+            margin-bottom: 39px;
+        }
+        .page__header-logo {
+            @include interactive();
+        }
+        .page__header-button{
+            width: 14px;
+            height: 14px;            
+            padding: 0 5px 5px 5px;            
+            margin: 0 20px 0 0;
+            align-self: baseline;            
+            @include header-button();
+            @media(min-width:$tablet-width){
+                width: 18px;
+                height: 18px;
+                margin: 0 26px 0 0;
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 2px;
+                background-color: $darkblue;            
+                transform: rotate(45deg);
+                left: 0;
+                @media(min-width:$tablet-width){
+                    width: 25px;
+                }
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 2px;
+                background-color: $darkblue;            
+                transform: rotate(-45deg);
+                left: 0;
+                @media(min-width:$tablet-width) {
+                    width: 25px;
+                }
+            }            
+            @media(min-width:$desktop-width) {
+                display: none;
+            }
+        }
+    }   
+    .main__nav {        
+        .main__nav-list{
+            list-style-type: none;
+            margin: 0;
+            padding: 0 0 0 5px;
+            @media(min-width:$tablet-width){
+                padding: 0;
+            }
+            @media(min-width:$desktop-width) {
+                display: flex;
+                margin: 0 0 0 57px;
+                padding: 0;
+            }
+            .main__nav-item{
+                margin-bottom: 25px;
+                @media(min-width:$tablet-width){
+                    margin-bottom: 30px;
+                    &:last-child{
+                        margin-bottom: 36px;
+                    }
+                }
+                @media(min-width:$desktop-width) {
+                    &:not(:last-child){
+                        margin: 0 20px 0 0;
+                    }                    
+                }
+                .main__nav-link{
+                    text-decoration: none;
+                    color: $darkblue;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 25px;
+                    @include interactive();
+                    @media(min-width:$tablet-width){
+                        font-size: 22px;
+                        line-height: 31px;
+                    }
+                    @media(min-width:$desktop-width){
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                    }
+                }
+            }
+        }        
+    }    
+    .main__nav-phone {
+        @include phone();
+        @include interactive();
+        @media(min-width:$desktop-width){
+            margin-left: auto;
+        }
+    }        
+}
+
+
+
+

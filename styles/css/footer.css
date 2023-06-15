@@ -1,0 +1,26 @@
+.page__footer {
+  padding: 40px 0 40px 15px;
+}
+@media (min-width: 768px) {
+  .page__footer {
+    padding: 45px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.page__footer p {
+  font-size: 12px;
+  line-height: 17px;
+}
+@media (min-width: 768px) {
+  .page__footer p {
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+  }
+}
+@media (min-width: 1366px) {
+  .page__footer {
+    display: none;
+  }
+}
